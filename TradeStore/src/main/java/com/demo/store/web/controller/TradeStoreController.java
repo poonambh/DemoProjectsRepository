@@ -1,7 +1,7 @@
 package com.demo.store.web.controller;
 
 import com.demo.store.web.CustomException;
-import com.demo.store.web.beans.TradeItem;
+import com.demo.store.web.beans.TradeItemDto;
 import com.demo.store.web.service.TradeStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +23,8 @@ public class TradeStoreController {
 
     @PostMapping
     @RequestMapping("/create")
-    public ResponseEntity<Object> createTradeRecord(@RequestBody TradeItem tradeItemDto) throws Exception{
-        TradeItem tradeItem = tradeStoreService.getTradeRecordService(tradeItemDto.getTradId());
+    public ResponseEntity<Object> createTradeRecord(@RequestBody TradeItemDto tradeItemDto) throws Exception{
+        TradeItemDto tradeItem = tradeStoreService.getTradeRecordService(tradeItemDto.getId());
         if(tradeItem!=null) {
             validate(tradeItem.getTradeVersion(), tradeItem.getMaturityDate(), tradeItemDto);
         }
@@ -33,7 +33,7 @@ public class TradeStoreController {
         return ResponseEntity.ok().build();
     }
 
-    private void validate(Long tradeVersion, Date maturityDate, TradeItem tradeItemDto) throws Exception{
+    private void validate(Long tradeVersion, Date maturityDate, TradeItemDto tradeItemDto) throws Exception{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date todayDate = sdf.parse(sdf.format(new Date() ));
 

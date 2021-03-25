@@ -11,9 +11,8 @@ import java.util.Date;
 public class TradeItem  implements Serializable {
     private static final long serialVersionUID = -7632746691749562076L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "tardeId")
-    private Long tradId;
+    @Column(name = "id")
+    private Long id;
 
     @Column(name = "tardeVersion")
     private Long tradeVersion;
@@ -38,7 +37,7 @@ public class TradeItem  implements Serializable {
     }
 
     public TradeItem(Long tradId, Long tradeVersion, String counterPartyId, String bookId, Date maturityDate, Date createDate, String expiredFlag){
-        this.tradId = tradId;
+        this.id = id;
         this.tradeVersion = tradeVersion;
         this.counterPartyId = counterPartyId;
         this.bookId = bookId;
@@ -47,11 +46,11 @@ public class TradeItem  implements Serializable {
         this.expiredFlag = expiredFlag;
     }
 
-    public void setTradId(Long tradId){
-        this.tradId = tradId;
+    public void setId(Long tradId){
+        this.id = tradId;
     }
-    public Long getTradId(){
-        return tradId;
+    public Long getId(){
+        return id;
     }
     public void setTradeVersion(Long tradeVersion){
         this.tradeVersion = tradeVersion;

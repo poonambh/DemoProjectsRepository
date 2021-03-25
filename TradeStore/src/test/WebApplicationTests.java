@@ -14,4 +14,19 @@ public class WebApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void createTradeRecordTest() {
+		// given
+		TardeItem item = new TardeItem();
+		entityManager.persist(alex);
+		entityManager.flush();
+
+		// when
+		Employee found = employeeRepository.findByName(alex.getName());
+
+		// then
+		assertThat(found.getName())
+				.isEqualTo(alex.getName());
+	}
+
 }

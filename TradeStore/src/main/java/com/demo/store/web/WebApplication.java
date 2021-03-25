@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
 @SpringBootApplication
-@ComponentScan("com.demo.store")
+@ComponentScan("com.demo.store.web")
 public class WebApplication {
 
 	public static void main(String[] args) {

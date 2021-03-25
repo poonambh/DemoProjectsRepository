@@ -1,11 +1,11 @@
 package com.demo.store.web.beans;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.Date;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TradeItem {
-    private Long tradId;
+public class TradeItemDto {
+    private Long id;
     private Long tradeVersion;
     private String counterPartyId;
     private String bookId;
@@ -13,12 +13,12 @@ public class TradeItem {
     private Date createDate;
     private String expiredFlag;//this field will have length as 1 in database
 
-    public TradeItem() {
+    public TradeItemDto() {
         super();
     }
 
-    public TradeItem(Long tradId,Long tradeVersion,String counterPartyId,String bookId,Date maturityDate,Date createDate,String expiredFlag){
-        this.tradId = tradId;
+    public TradeItemDto(Long id, Long tradeVersion, String counterPartyId, String bookId, Date maturityDate, Date createDate, String expiredFlag){
+        this.id = id;
         this.tradeVersion = tradeVersion;
         this.counterPartyId = counterPartyId;
         this.bookId = bookId;
@@ -27,11 +27,11 @@ public class TradeItem {
         this.expiredFlag = expiredFlag;
     }
 
-    public void setTradId(Long tradId){
-        this.tradId = tradId;
+    public void setId(Long tradId){
+        this.id = tradId;
     }
-    public Long getTradId(){
-        return tradId;
+    public Long getId(){
+        return id;
     }
     public void setTradeVersion(Long tradeVersion){
         this.tradeVersion = tradeVersion;

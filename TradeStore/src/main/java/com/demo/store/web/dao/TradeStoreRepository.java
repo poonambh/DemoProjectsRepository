@@ -1,14 +1,13 @@
 package com.demo.store.web.dao;
 
-import com.demo.store.web.beans.TradeItem;
+import com.demo.store.web.beans.TradeItemDto;
+import com.demo.store.web.entity.TradeItem;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
+@Repository
 public interface TradeStoreRepository extends JpaRepository<TradeItem,String> {
 
-public TradeItem findByTradeId(Long tardeId);
+public TradeItem findById(Long tardeId);
 
 }
